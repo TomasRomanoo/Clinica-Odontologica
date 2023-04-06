@@ -1,7 +1,9 @@
 package com.dh.Clinica.service.impl;
 
 import com.dh.Clinica.dto.PacienteDTO;
+import com.dh.Clinica.entity.Odontologo;
 import com.dh.Clinica.entity.Paciente;
+import com.dh.Clinica.exceptions.BadRequestException;
 import com.dh.Clinica.repository.IPacienteRepository;
 import com.dh.Clinica.service.IPacienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +24,13 @@ public class PacienteService implements IPacienteService {
     ObjectMapper mapper;
 
     @Override
-    public void crearPaciente(PacienteDTO pacienteDTO) {
+    public void crearPaciente(PacienteDTO pacienteDTO) throws BadRequestException {
+        /*codigo nuevo*/
+        String dni = pacienteDTO.getDni();
+        Optional<Paciente>pacienteExistente = pacienteRepository.traerDni(dni);
+        if (pacienteExistente.isPresent()) {
+            throw new BadRequestException("El Dni ya está registrado");
+        }
         Paciente paciente = mapper.convertValue(pacienteDTO, Paciente.class);
         pacienteRepository.save(paciente);
     }

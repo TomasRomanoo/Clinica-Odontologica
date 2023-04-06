@@ -1,6 +1,7 @@
 package com.dh.Clinica.controller;
 
 import com.dh.Clinica.dto.PacienteDTO;
+import com.dh.Clinica.exceptions.BadRequestException;
 import com.dh.Clinica.service.IPacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<?> crearPaciente(@Valid @RequestBody PacienteDTO pacienteDTO){
+    public ResponseEntity<?> crearPaciente(@Valid @RequestBody PacienteDTO pacienteDTO)throws BadRequestException {
         pacienteService.crearPaciente(pacienteDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
