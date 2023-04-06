@@ -1,0 +1,37 @@
+/* html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  } */
+
+.container{
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;  
+  justify-content: center;
+  background-color: rgb(196, 196, 196);
+}
+.container form{
+  text-align: start;
+  padding: 10px;
+  background-color: #838383;
+}
+.container form div{
+  margin: 10px;
+}
+
+.container-form{
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #894747;
+}
+.container form ul {
+/* display: inline; */
+decoration
+}
+
