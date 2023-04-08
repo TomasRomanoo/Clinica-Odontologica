@@ -11,7 +11,7 @@ window.addEventListener('load', function () {
     .then(response => response.json())
     .then(data => {
          //recorremos la colección de estudiantes del JSON
-         for(odontologo of data){
+        for(odontologo of data){
           //por cada estudiante armaremos una fila de la tabla
           //cada fila tendrá un id que luego nos permitirá borrar la fila si eliminamos
           //el estudiante
@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
           //por cada estudiante creamos un boton delete que agregaremos en cada fila para poder eliminar la misma
           //dicho boton invocara a la funcion de java script deleteByKey que se encargará
           //de llamar a la API para eliminar al estudiante
-           let deleteButton = '<button' +
+          let deleteButton = '<button' +
                                       ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
                                       ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
                                       '&times' +
@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
           //como primer columna pondremos el boton modificar
           //luego los datos del estudiante
           //como ultima columna el boton eliminar
-         pacienteRow.innerHTML = '<td>' + updateButton + '</td>' +
+          pacienteRow.innerHTML = '<td>' + updateButton + '</td>' +
                               '<td class=\"td_first_name\">' + odontologo.nombre.toUpperCase() + '</td>' +
                               '<td class=\"td_last_name\">' + odontologo.apellido.toUpperCase() + '</td>' +
                               '<td>' + deleteButton + '</td>';

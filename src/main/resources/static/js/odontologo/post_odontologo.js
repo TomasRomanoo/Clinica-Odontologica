@@ -19,41 +19,20 @@ window.addEventListener('load', function () {
             body: JSON.stringify(formData)
         }
 
-        fetch(url, settings)
-            .then(response => response.json())
-            .then(data => {
-                let successAlert = '<div class="alert alert-success alert-dismissible">' +
-                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                    '<strong></strong> Odontologo agregado </div>'
-
-                document.querySelector('#response').innerHTML = successAlert;
-                document.querySelector('#response').style.display = "block";
-                resetUploadForm();
-
+        fetch(url, setting)
+        .then(response=>response.json())
+        .then(data=>{
+            let successAlert = '<p>Se ha enviado</p>';
+            let botonAlta = '<button onclick="window.location.href = \'/site/alta-odontologo.html\'" id="myButton" class=\'float-left submit-button\'>Crear otro Odontologo</button>';
+            let botonLista = '<button onclick="window.location.href = \'/site/lista-odontologo.html\'" id="myButton" class=\'float-left submit-button\'>Ver todos los Odontologos</button>';
+            document.querySelector('.main-form').innerHTML = successAlert + botonAlta + botonLista;
+            document.querySelector('.main-form').style.display="block";
             })
-            .catch(error => {
-                let errorAlert = '<div class="alert alert-danger alert-dismissible">' +
-                                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                    '<strong> Error intente nuevamente</strong> </div>'
+        .catch(error =>{
+            let errorAlert = '<p>Se ha enviado</p>';
+            document.querySelector('.main-form').innerHTML = errorAlert;
+            document.querySelector('.main-form').style.display="block";
 
-                document.querySelector('#response').innerHTML = errorAlert;
-                document.querySelector('#response').style.display = "block";
-                resetUploadForm();})
-    });
-
-    function resetUploadForm(){
-        document.querySelector('#nombre').value = "";
-        document.querySelector('#apellido').value = "";
-        document.querySelector('#matricula').value = "";
-
-    }
-
-    (function(){
-        let pathname = window.location.pathname;
-        if(pathname === "/"){
-            document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/odontologoList.html") {
-            document.querySelector(".nav .nav-item a:last").addClass("active");
-        }
-    })();
+        })
+    })
 });

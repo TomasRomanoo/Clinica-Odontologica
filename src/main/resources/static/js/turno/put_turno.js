@@ -26,31 +26,31 @@ window.addEventListener('load', function () {
             },
             body: JSON.stringify(formData)
         }
-          fetch(url,settings)
-          .then(response => response.json())
+        fetch(url,settings)
+        .then(response => response.json())
 
     })
- })
+})
 
     //Es la funcion que se invoca cuando se hace click sobre el id de un estudiante del listado
     //se encarga de llenar el formulario con los datos del estudiante
     //que se desea modificar
     function findBy(id) {
-          const url = '/odontologos'+"/"+id;
-          const settings = {
-              method: 'GET'
-          }
-          fetch(url,settings)
-          .then(response => response.json())
-          .then(data => {
-              let turno = data;
-              document.querySelector('#odontologo_id').value = turno.id;
-              document.querySelector('#nombre').value = turno.name;
-              document.querySelector('#apellido').value = turno.lastname;
+        const url = '/odontologos'+"/"+id;
+        const settings = {
+            method: 'GET'
+        }
+        fetch(url,settings)
+        .then(response => response.json())
+        .then(data => {
+            let turno = data;
+            document.querySelector('#odontologo_id').value = turno.id;
+            document.querySelector('#nombre').value = turno.name;
+            document.querySelector('#apellido').value = turno.lastname;
 
-            //el formulario por default esta oculto y al editar se habilita
-              document.querySelector('#div_odontologo_updating').style.display = "block";
-          }).catch(error => {
-              alert("Error: " + error);
-          })
-      }
+        //el formulario por default esta oculto y al editar se habilita
+            document.querySelector('#div_odontologo_updating').style.display = "block";
+        }).catch(error => {
+            alert("Error: " + error);
+        })
+    }

@@ -4,30 +4,26 @@
     <title>Odontologo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/odontologo/get_odontologo.js"></script>
-    <script type="text/javascript" src="/js/odontologo/put_odontologo.js"></script>
-    <script type="text/javascript" src="/js/odontologo/delete_odontologo.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="javascript" src="/js/odontologo/get_odontologo.js"></script>
+    <script type="javascript" src="/js/odontologo/put_odontologo.js"></script>
+    <script type="javascript" src="/js/odontologo/delete_odontologo.js"></script>
 </head>
-<body class="bg-dark text-white text-center d-flex flex-column justify-content-center">
-<div class="container">
-    <ul class="nav nav-pills mt-2">
-        <li class="nav-item">
-            <a class="nav-link text-white mr-2" href="/odontologoAlta.html" style="background-color:#005F9E">Agregar nuevo</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="/odontologoList.html/" style="background-color:#005F9E">Todos</a>
-        </li>
-    </ul>
-
-    <div id="div_odontologo_table">
-        <h1>Odontologos</h1>
-        <div class="d-flex justify-content-center">
-            <div class="row table-responsive text-center col-6">
-                <table id="odontologoTable" class="table table-striped text-white">
+<body>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="/odontologoAlta.html">Agregar nuevo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/odontologoList.html">Todas</a>
+            </li>
+        </ul>
+    
+        <div id="div_odontologo_table">
+            <h1>Odontologos</h1>
+            <div class="table-responsive">
+                <table id="odontologoTable" class="table table-striped">
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
@@ -38,35 +34,32 @@
                 </table>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6" style="display: none; background-color:#e6fffa; padding:10px; border-radius:3px"
-            id="div_odontologo_updating">
-            <form id="update_odontologo_form">
-                <div class="form-group">
-                    <label >Id:</label>
-                    <input type="text" class="form-control" id="odontologo_id" readonly>
+        <div class="row">
+            <div style="display: none; background-color:#e6fffa; padding:10px; border-radius:3px" id="div_odontologo_updating">
+                <form id="update_odontologo_form">
+                    <div class="form-group">
+                        <label >Id:</label>
+                        <input type="text" class="form-control" id="odontologo_id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label >Nombre:</label>
+                        <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label >Apellido:</label>
+                        <input type="text" class="form-control" placeholder="Apellido" id="apellido">
+                    </div>
+                    <div class="form-group">
+                        <label >Matricula:</label>
+                        <input type="text" class="form-control" placeholder="Matricula" id="matricula">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Modificar</button>
+                </form>
+                <div id="response" style="display:none; margin:10px">
                 </div>
-                <div class="form-group">
-                    <label >Nombre:</label>
-                    <input type="text" class="form-control" placeholder="Nombre" id="nombre">
-                </div>
-                <div class="form-group">
-                    <label >Apellido:</label>
-                    <input type="text" class="form-control" placeholder="Apellido" id="apellido">
-                </div>
-                <div class="form-group">
-                    <label >Matricula:</label>
-                    <input type="text" class="form-control" placeholder="Matricula" id="matricula">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Modificar</button>
-            </form>
-            <div id="response" style="display:none; margin:10px">
             </div>
         </div>
+        <hr>
     </div>
-    <hr>
-</div>
-</body>
+    </body>
 </html>

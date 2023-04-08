@@ -41,12 +41,12 @@ body{
 .container form ul {
 /* display: inline; */
 }
-.container form ul li {
+ul li {
   list-style: none;
   margin-top: 5px;
   
 }
-.container form ul li a{
+ul li a{
   display: block;
   text-decoration: none;  
   color: rgb(0, 0, 0);
