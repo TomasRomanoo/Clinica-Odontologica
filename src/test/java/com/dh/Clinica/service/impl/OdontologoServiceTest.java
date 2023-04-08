@@ -1,6 +1,7 @@
 package com.dh.Clinica.service.impl;
 
 import com.dh.Clinica.dto.OdontologoDTO;
+import com.dh.Clinica.exceptions.BadRequestException;
 import com.dh.Clinica.service.IOdontologoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,22 @@ class OdontologoServiceTest {
     private IOdontologoService odontologoService;
 
     @Test
-    public void crearEstudianteTest(){
+    public void crearOdontologoTest() throws BadRequestException {
         OdontologoDTO odontologoDTO = new OdontologoDTO();
         odontologoDTO.setNombre("Tomas");
         odontologoDTO.setApellido("Romano");
-        odontologoDTO.setMatricula(123456);
+        odontologoDTO.setMatricula(122222);
 
         odontologoService.crearOdontologo(odontologoDTO);
 
-        OdontologoDTO odontologoBeto = odontologoService.buscarOdontologo(1L);
+        OdontologoDTO odontologoBuscado = odontologoService.buscarOdontologo(17L);
 
-        assertTrue(odontologoBeto != null);
+        assertTrue(odontologoBuscado != null);
+    }
+    @Test
+    public void buscarOdontologoFantasma() throws BadRequestException{
+        OdontologoDTO odontologoFantasma = odontologoService.buscarOdontologo(999L);
+
+        assertTrue(odontologoFantasma == null);
     }
 }
